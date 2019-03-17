@@ -24,10 +24,9 @@ public class DFSFileExplorer implements IFileExplorer {
     vistor.visit(rootDirectory);
 
     File[] childrenFiles = rootDirectory.listFiles();
-
-    Arrays.sort(childrenFiles);
-
+    
     if(childrenFiles != null){
+        Arrays.sort(childrenFiles);
         for(int i = 0; i < childrenFiles.length; i++){
             if(childrenFiles[i].isFile()){
                 vistor.visit(childrenFiles[i]);
