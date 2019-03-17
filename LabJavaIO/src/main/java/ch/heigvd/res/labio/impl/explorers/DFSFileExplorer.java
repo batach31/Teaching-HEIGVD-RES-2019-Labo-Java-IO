@@ -23,11 +23,13 @@ public class DFSFileExplorer implements IFileExplorer {
     //we start at the root
     vistor.visit(rootDirectory);
 
+    //then we will explore the children of the root
     File[] childrenFiles = rootDirectory.listFiles();
-    
+
     if(childrenFiles != null){
         Arrays.sort(childrenFiles);
         for(int i = 0; i < childrenFiles.length; i++){
+            //to do a DSF, we keep on exploring the directories until they're files
             if(childrenFiles[i].isFile()){
                 vistor.visit(childrenFiles[i]);
             }else{
